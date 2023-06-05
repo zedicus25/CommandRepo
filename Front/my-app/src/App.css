@@ -95,7 +95,7 @@ body
 
 .results img
 {
-  margin: 10px;
+
   width: 250px
 }
 
@@ -120,4 +120,13 @@ body
 
 .sidebar li {
   margin: 10px;
+}
+
+
+.card
+{
+  background-color: #2a2f4f;
+  padding: 10px;
+  margin: 10px;
+  color: white;
 }
