@@ -36,7 +36,7 @@ function Search() {
             </form>
             <ul className='results'>
                 {results.map((result, index) => ( 
-                    <Card imageUrl={result.img} title={'AnimalName'}></Card>
+                    <Card imageUrl={result.img} title={'AnimalName'} id={1}></Card>
                 ))}
             </ul>
         </div>

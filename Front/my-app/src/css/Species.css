@@ -1,0 +1,60 @@
+.specie-block
+{
+    
+    max-width: 1000px;
+    min-height: 600px;
+    margin-top: 50px;
+    margin-left: auto;
+    margin-right: auto;
+    color: white;
+    display: flex;
+    font-size: 24px;
+    padding-right: 0;
+
+}
+
+.description
+{
+    padding: 20px;
+    background-color: #211d2970;
+    width: 70%;
+    padding-right: 100px;
+}
+
+.description p
+{
+    margin: 0;
+    margin-top: -20px;
+}
+
+.description h1
+{
+    text-align: center;
+    margin: 0;
+    transform: translateY(-60px);
+}
+
+.info
+{
+    width: 30%;
+    background-color: #211d29c9;
+    padding: 20px;
+    font-size: 26px;
+    font-weight: 600;
+    
+}
+.info ul
+{
+    margin-top: -30px;
+}
+.info li
+{
+    margin: 10px;
+}
+.info img
+{
+    width: 400px;
+    transform:translate(-60px,-40px);
+    border: 5px solid white;
+    border-radius: 20px;
+}
