@@ -2,13 +2,6 @@ body
 {
   background-color: #917fb3;
 }
-
-.header 
-{
-  display: flex;
-  justify-content: center;
-  font-size: 28px;
-}
 .App
 {
   display: flex;
@@ -16,117 +9,9 @@ body
   justify-content: center;
   font-family: Arial, Helvetica, sans-serif;
 }
-.header h1
-{
-  color: #232535;
-  margin-top: 100px;
-  width: 500px;
-  text-align: center;
-  background-color: #5e5781;
-  padding: 20px;
-  border-radius: 50px;
-}
-.content
-{
-  display: flex;
-  align-items: center;
-  flex-flow: column;
-  width: 100%;
-  margin-right: 160px;
-
-}
-.main 
-{
-  display: flex;
-}
-
-.searchInput
-{
-  width: 300px;
-  height: 25px;
-  font-size: 18px;
-  padding: 7px;
-  text-align: center;
-  border-radius: 30px;
-  border: none;
-}
-
-
-
-.search form
+.header 
 {
   display: flex;
   justify-content: center;
-}
-
-.searchButton
-{
-  margin-top: -7px;
-  width: fit-content;
-  display: flex;
-  align-items: center;
-  text-align: center;
-  justify-content: center;
-  padding: 10px;
-  border-radius: 5px;
-  border: none;
-  cursor: pointer;
-}
-
-.search-icon {
-  width: 30px;
-  height: 30px;
-  fill: #232535;
-}
-
-
-.searchButton
-{
-  background: url('https://www.svgrepo.com/show/89385/search.svg');
-}
-
-.results
-{
-  display: flex;
-  flex-flow: row wrap;
-  text-align: center;
-  padding: 0px;
-}
-
-.results img
-{
-
-  width: 250px
-}
-
-.sidebar {
-  color: white;
-  left: 0;
-  margin-top: 60px;
-  margin-left: 20px;
-  min-width: 140px;
-  height: 200px;
-  background-color: #2a2f4f;
-  padding: 20px;
-  border-radius: 30px;
-  font-size: 22px;
-}
-
-.sidebar ul {
-  list-style-type: none;
-  padding: 0;
-  margin: 0;
-}
-
-.sidebar li {
-  margin: 10px;
-}
-
-
-.card
-{
-  background-color: #2a2f4f;
-  padding: 10px;
-  margin: 10px;
-  color: white;
+  font-size: 28px;
 }

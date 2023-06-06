@@ -1,21 +1,17 @@
 import logo from './logo.svg';
 import './App.css';
-import Search from './components/Search';
-import SideBar from './components/SideBar';
+import { Routes, Route} from 'react-router-dom'
+import MainPage from "./pages/MainPage.js";
+import AdminPage from './pages/AdminPage'
 
 function App() {
 	return (
-		<div className="App">
-			<div className="header">
-				<h1>Wildlife Guide</h1>
-			</div>
-			<div className='main'>
-				<SideBar></SideBar>
-				<div className="content">
-					<Search></Search>
-				</div>
-			</div>
-		</div>
+		
+				<Routes>
+					<Route path="/" element={<MainPage/>} />
+					<Route path='/admin' element={<AdminPage/>}></Route>
+				</Routes>
+		
 	);
 }
 

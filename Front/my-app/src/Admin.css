@@ -1,0 +1,132 @@
+.admin-page
+{
+    position: fixed;
+    display: flex;
+    flex-flow: column;
+    background-color: #1e1e1e;
+    min-width: 100%;
+    min-height: 100%;
+    color: white;
+}
+.admin-page h1
+{
+    font-size: 56px;
+    width: fit-content;
+    border-bottom: 1px solid white;
+    padding-left: 50px;
+}
+ul
+{
+    list-style-type: none;
+    padding: 0px;
+    margin: 0px;
+}
+.admin-sidebar
+{
+    font-size: 36px;
+    text-align: right;
+    margin-top: 20px;
+}
+.admin-sidebar li
+{
+    border-bottom: 1px solid white;
+    padding-left: 50px;
+    margin-top: 10px;
+}
+.admin-sidebar p
+{
+    margin-top: 10px;
+    margin-bottom: 0;
+}
+
+.inputs
+{
+    margin-top: 10px;
+    margin-left: 80px;
+    display: flex;
+    font-size: 22px;
+    
+}
+.inputs li
+{
+    display: flex;
+    flex-flow: column;
+    margin-left: 100px;
+    margin-top: 20px;
+    margin-right: 100px;
+}
+
+.inputs li input
+{
+    width: 200px;
+    height: 30px;
+    border-radius: 20px;
+    border: 4px solid lightgray
+    
+}
+
+.main-inputs li:nth-child(2) input
+{
+    height: 100px;
+}
+.inputs select
+{
+    width: 150px;
+    padding: 5px;
+    border-radius: 10px;
+    border: 4px solid lightgray;
+}
+
+.dropdown-content
+{
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0s, opacity 0.3s, height 0.3s linear;
+    height: 0px;
+    display: flex;
+    flex-flow: column;
+    
+}
+.admin-sidebar>ul>li:hover>.dropdown-content
+{
+    visibility: visible;
+    opacity: 1;
+    height: 50px;
+    
+}
+.dropdown-content button
+{
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+    font-size: 18px;
+    text-align: right;
+}
+
+.confirm-button
+{
+    width: 200px;
+    height: 50px;
+    border-radius: 20px;
+    font-size: 32px;
+    background-color: #b3b3b3;
+    border-color: #8a8a8a;
+    cursor: pointer;
+    margin-top: 50px;
+    margin-left: 610px;
+    
+}
+
+.admin-main
+{
+    display: flex;
+    flex-flow: column
+}
+
+.admin-panel
+{
+    display: flex;
+    flex-flow: row;
+    max-height: 350px;
+}
