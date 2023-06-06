@@ -44,7 +44,3 @@ function Search() {
 };
 
 export default Search; 
-{/* <div className='resultCard'>
-    <img src={result.img} key={index}></img>
-    <p className='cardTitle'>AnimalName</p>
-</div> */}
