@@ -1,4 +1,4 @@
-﻿using System.Data.Entity;
+﻿using Microsoft.EntityFrameworkCore;
 using WildNature_Back.Configuration;
 using WildNature_Back.Context;
 using WildNature_Back.Models;
@@ -7,15 +7,15 @@ namespace WildNature_Back.LocalControllers
 {
     public class GenController : IGenController
     {
-        private readonly db_a9a6f8_fowon21908Context _dbContext;
-        public GenController(db_a9a6f8_fowon21908Context dbContext)
+        private readonly DbA9a6f8Fowon21908Context _dbContext;
+        public GenController(DbA9a6f8Fowon21908Context dbContext)
         {
             _dbContext = dbContext;
         }
 
         public Task<List<Gen>> Add(Gen t)
         {
-            var item = _dbContext.Gens.FirstOrDefault(x => x.Name.Equals(t.Name, StringComparison.OrdinalIgnoreCase));
+            var item = _dbContext.Gens.FirstOrDefault(x => x.Name.ToLower().Equals(t.Name.ToLower()));
             if (item == null)
             {
                 _dbContext.Gens.Add(t);

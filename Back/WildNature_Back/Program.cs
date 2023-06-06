@@ -13,12 +13,17 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddTransient<IClassController, ClassController>();
-builder.Services.AddDbContext<db_a9a6f8_fowon21908Context>(options => {
-options.UseSqlServer(
+builder.Services.AddTransient<ISpeciesController, SpeciesController>();
+builder.Services.AddTransient<IFamilyController, FamilyController>();
+builder.Services.AddTransient<IKingdomController, KingdomController>();
+builder.Services.AddTransient<IGenController, GenController>();
+builder.Services.AddDbContext<DbA9a6f8Fowon21908Context>(options =>
+{
+    options.UseSqlServer(
 
-    builder.Configuration.GetConnectionString("dbconn"),
+        builder.Configuration.GetConnectionString("dbconn"),
 
-    b => b.MigrationsAssembly(typeof(db_a9a6f8_fowon21908Context).Assembly.FullName));
+        b => b.MigrationsAssembly(typeof(DbA9a6f8Fowon21908Context).Assembly.FullName));
 });
 
 var app = builder.Build();

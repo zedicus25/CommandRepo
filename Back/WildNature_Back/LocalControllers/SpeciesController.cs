@@ -1,4 +1,4 @@
-﻿using System.Data.Entity;
+﻿using Microsoft.EntityFrameworkCore;
 using WildNature_Back.Configuration;
 using WildNature_Back.Context;
 using WildNature_Back.Models;
@@ -7,17 +7,17 @@ namespace WildNature_Back.LocalControllers
 {
     public class SpeciesController : ISpeciesController
     {
-        private readonly db_a9a6f8_fowon21908Context _dbContext;
+        private readonly DbA9a6f8Fowon21908Context _dbContext;
 
-        public SpeciesController(db_a9a6f8_fowon21908Context dbContext)
+        public SpeciesController(DbA9a6f8Fowon21908Context dbContext)
         {
             _dbContext = dbContext;
         }
 
         public Task<List<Species>> Add(Species t)
         {
-            var item = _dbContext.Species.FirstOrDefault(x => x.Name.Equals(t.Name, StringComparison.OrdinalIgnoreCase));
-            if(item == null)
+            var item = _dbContext.Species.FirstOrDefault(x => x.Name.ToLower().Equals(t.Name.ToLower()));
+            if (item == null)
             {
                 _dbContext.Species.Add(t);
                 _dbContext.SaveChanges();

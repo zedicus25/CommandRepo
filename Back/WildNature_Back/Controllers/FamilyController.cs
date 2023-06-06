@@ -1,26 +1,27 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using WildNature_Back.Configuration;
+using WildNature_Back.LocalControllers;
 using WildNature_Back.Models;
 
 namespace WildNature_Back.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
-    public class SpeciesController : ControllerBase
+    public class FamilyController : ControllerBase
     {
-        private readonly ISpeciesController _speciesController;
+        private readonly IFamilyController _familyController;
 
-        public SpeciesController(ISpeciesController speciesController)
+        public FamilyController(IFamilyController familyController)
         {
-            this._speciesController = speciesController;
+            _familyController = familyController;
         }
 
         [HttpPost]
         [Route("Add")]
-        public async Task<IActionResult> CreateSpecies([FromBody] Species t)
+        public async Task<IActionResult> CreateFamily([FromBody] Family t)
         {
-            var result = await _speciesController.Add(t);
-            if(result != null)
+            var result = await _familyController.Add(t);
+            if (result != null)
             {
                 return Ok(result);
             }
@@ -32,10 +33,10 @@ namespace WildNature_Back.Controllers
 
         [HttpPost]
         [Route("Edit")]
-        public async Task<IActionResult> EditSpecies(int id, string newName)
+        public async Task<IActionResult> EditFamily(int id, string newName)
         {
-            var result = await _speciesController.Edit(id, newName);
-            if(result != null)
+            var result = await _familyController.Edit(id, newName);
+            if (result != null)
             {
                 return Ok(result);
             }
@@ -47,10 +48,10 @@ namespace WildNature_Back.Controllers
 
         [HttpPost]
         [Route("Remove")]
-        public async Task<IActionResult> RemoveSpecies(int id)
+        public async Task<IActionResult> RemoveFamily(int id)
         {
-            var result = await _speciesController.Remove(id);    
-            if(result != null)
+            var result = await _familyController.Remove(id);
+            if (result != null)
             {
                 return Ok(result);
             }
@@ -62,10 +63,10 @@ namespace WildNature_Back.Controllers
 
         [HttpGet]
         [Route("Select")]
-        public async Task<IActionResult> SelectSpecies()
+        public async Task<IActionResult> SelectFamily()
         {
-            var result = await _speciesController.Select();
-            if(result != null)
+            var result = await _familyController.Select();
+            if (result != null)
             {
                 return Ok(result);
             }

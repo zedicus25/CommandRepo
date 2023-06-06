@@ -6,21 +6,21 @@ namespace WildNature_Back.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
-    public class SpeciesController : ControllerBase
+    public class GenController : ControllerBase
     {
-        private readonly ISpeciesController _speciesController;
-
-        public SpeciesController(ISpeciesController speciesController)
+        private readonly IGenController _genController;
+        public GenController(IGenController genController)
         {
-            this._speciesController = speciesController;
+            _genController = genController;
         }
+
 
         [HttpPost]
         [Route("Add")]
-        public async Task<IActionResult> CreateSpecies([FromBody] Species t)
+        public async Task<IActionResult> CreateGen([FromBody] Gen t)
         {
-            var result = await _speciesController.Add(t);
-            if(result != null)
+            var result = await _genController.Add(t);
+            if (result != null)
             {
                 return Ok(result);
             }
@@ -32,10 +32,10 @@ namespace WildNature_Back.Controllers
 
         [HttpPost]
         [Route("Edit")]
-        public async Task<IActionResult> EditSpecies(int id, string newName)
+        public async Task<IActionResult> EditGen(int id, string newName)
         {
-            var result = await _speciesController.Edit(id, newName);
-            if(result != null)
+            var result = await _genController.Edit(id, newName);
+            if (result != null)
             {
                 return Ok(result);
             }
@@ -47,10 +47,10 @@ namespace WildNature_Back.Controllers
 
         [HttpPost]
         [Route("Remove")]
-        public async Task<IActionResult> RemoveSpecies(int id)
+        public async Task<IActionResult> RemoveGen(int id)
         {
-            var result = await _speciesController.Remove(id);    
-            if(result != null)
+            var result = await _genController.Remove(id);
+            if (result != null)
             {
                 return Ok(result);
             }
@@ -62,10 +62,10 @@ namespace WildNature_Back.Controllers
 
         [HttpGet]
         [Route("Select")]
-        public async Task<IActionResult> SelectSpecies()
+        public async Task<IActionResult> SelectGen()
         {
-            var result = await _speciesController.Select();
-            if(result != null)
+            var result = await _genController.Select();
+            if (result != null)
             {
                 return Ok(result);
             }
