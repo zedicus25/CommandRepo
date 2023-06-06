@@ -82,9 +82,9 @@ namespace WildNature_Back.Controllers
             var result = await _speciesController.Select();
             if (result != null)
             {
-                if (!string.IsNullOrEmpty(search))
+                if (!string.IsNullOrEmpty(search.ToLower()))
                 {
-                    result = result.Where(g => g.Name.Contains(search)).ToList();
+                    result = result.Where(g => g.Name.Contains(search.ToLower())).ToList();
                 }
                 return Ok(result);
             }
