@@ -93,5 +93,24 @@ namespace WildNature_Back.Controllers
                 return NotFound();
             }
         }
+
+        [HttpGet]
+        [Route("SelectAnimalById")]
+        public async Task<IActionResult> SelectAnimalIdSpecies(int id)
+        {
+            var result = await _speciesController.Select();
+            if (result != null)
+            {
+                if(id > 0)
+                {
+                    result = result.Where(g => g.Id == id).ToList();
+                }
+                return Ok(result);
+            }
+            else
+            {
+                return NotFound();
+            }
+        }
     }
 }
