@@ -9,10 +9,18 @@ namespace WildNature_Back.Controllers
     public class SpeciesController : ControllerBase
     {
         private readonly ISpeciesController _speciesController;
+        private readonly IGenController _genController;
+        private readonly IFamilyController _familyController;
+        private readonly IClassController _classController;
+        private readonly IKingdomController _kingdomController;
 
-        public SpeciesController(ISpeciesController speciesController)
+        public SpeciesController(ISpeciesController speciesController, IGenController genController, IFamilyController familyController, IClassController classController, IKingdomController kingdomController)
         {
-            this._speciesController = speciesController;
+            _speciesController = speciesController;
+            _genController = genController;
+            _familyController = familyController;
+            _classController = classController;
+            _kingdomController = kingdomController;
         }
 
         [HttpPost]
@@ -103,9 +111,17 @@ namespace WildNature_Back.Controllers
             {
                 if(id > 0)
                 {
-                    result = result.Where(g => g.Id == id).ToList();
+                    var species = result.FirstOrDefault(g => g.Id == id);
+                    if(species != null)
+                    {
+                        var _class = _classController.Select().Result.FirstOrDefault(x => x.Id == species.IdClass);
+                        var _family = _familyController.Select().Result.FirstOrDefault(x => x.Id == species.IdFamily);
+                        var _kingdom = _kingdomController.Select().Result.FirstOrDefault(x => x.Id == species.IdKingdom);
+                        var _gen = _genController.Select().Result.FirstOrDefault(x => x.Id == species.IdGen);
+                        return Ok(new { Name = species.Name, Image = species.Image, Description = species.Description, kingdom = _kingdom?.Name, family = _family?.Name, cls = _class?.Name, gen = _gen?.Name  });
+                    }
                 }
-                return Ok(result);
+                return NotFound();
             }
             else
             {
