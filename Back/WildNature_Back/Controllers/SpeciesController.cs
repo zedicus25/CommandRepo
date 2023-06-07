@@ -84,7 +84,7 @@ namespace WildNature_Back.Controllers
             {
                 if (!string.IsNullOrEmpty(search.ToLower()))
                 {
-                    result = result.Where(g => g.Name.Contains(search.ToLower())).ToList();
+                    result = result.Where(g => g.Name.ToLower().Contains(search.ToLower())).ToList();
                 }
                 return Ok(result);
             }
