@@ -71,7 +71,7 @@ ul
 }
 .inputs select
 {
-    width: 150px;
+    width: 100%;
     padding: 5px;
     border-radius: 10px;
     border: 4px solid lightgray;
@@ -91,7 +91,7 @@ ul
 {
     visibility: visible;
     opacity: 1;
-    height: 50px;
+    height: 70px;
     
 }
 .dropdown-content button
@@ -114,7 +114,7 @@ ul
     border-color: #8a8a8a;
     cursor: pointer;
     margin-top: 50px;
-    margin-left: 610px;
+    margin-left: 200px;
     
 }
 
@@ -130,3 +130,27 @@ ul
     flex-flow: row;
     max-height: 350px;
 }
+
+
+
+.category-crud
+{
+    display: flex;
+    flex-flow: column;
+    text-align: center;
+}
+
+.category-crud-button
+{
+    width: 200px;
+    height: 50px;
+    border-radius: 20px;
+    font-size: 32px;
+    background-color: #b3b3b3;
+    border-color: #8a8a8a;
+    cursor: pointer;
+    margin-top: 50px;
+    margin-left: auto;
+    margin-right: auto;
+}
+

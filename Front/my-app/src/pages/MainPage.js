@@ -9,12 +9,12 @@ function MainPage() {
 				<h1>Wildlife Guide</h1>
 			</div>
 			<div className='main'>
-				<div className="sidebar">
+				{/* <div className="sidebar">
 					<ul>
 						<li>Kingdom</li>
 						<li>Subspecies</li>
 					</ul>
-				</div>
+				</div> */}
 				<div className="content">
 					<Search></Search>
 				</div>

@@ -6,21 +6,18 @@ function Search() {
     const [query, setQuery] = useState('');
     const [results, setResults] = useState([]);
 
-    const handleInputChange = (event) => {
+    function handleInputChange (event) {
         setQuery(event.target.value);
     };
 
-    const handleSubmit = (event) => {
+    function handleSubmit (event) {
         event.preventDefault();
         searchAPI();
     };
-    const searchAPI = async () => {
+    async function searchAPI() {
         try {
-            //   const response = await axios.get(``); //add API key
-            let tmpResults = [{ img: 'https://media.istockphoto.com/id/488580536/photo/giraffe-in-front-of-kilimanjaro-mountain.jpg?s=612x612&w=0&k=20&c=xqZ1Lo6_a1Lq4JwRFTts6xCGI0NxMI4UuAYXM5Qwk8g=' },
-            { img: 'https://media.istockphoto.com/id/488580536/photo/giraffe-in-front-of-kilimanjaro-mountain.jpg?s=612x612&w=0&k=20&c=xqZ1Lo6_a1Lq4JwRFTts6xCGI0NxMI4UuAYXM5Qwk8g=' },
-            { img: 'https://media.istockphoto.com/id/488580536/photo/giraffe-in-front-of-kilimanjaro-mountain.jpg?s=612x612&w=0&k=20&c=xqZ1Lo6_a1Lq4JwRFTts6xCGI0NxMI4UuAYXM5Qwk8g=' },]
-            setResults(tmpResults);
+            const response = await axios.get(`https://localhost:7132/api/Species/SelectAnimal?search=${query}`); 
+            setResults(response.data);
         } catch (error) {
             console.error(error);
         }
@@ -36,7 +33,7 @@ function Search() {
             </form>
             <ul className='results'>
                 {results.map((result, index) => ( 
-                    <Card imageUrl={result.img} title={'AnimalName'} id={1}></Card>
+                    <Card key={index} imageUrl={result.image} title={result.name} id={result.id}></Card>
                 ))}
             </ul>
         </div>

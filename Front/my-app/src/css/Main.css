@@ -13,9 +13,10 @@
 {
   display: flex;
   align-items: center;
+  margin-left: auto;
+  margin-right: auto;
   flex-flow: column;
-  width: 100%;
-  margin-right: 160px;
+  width: 80%;
 
 }
 .main 
@@ -82,7 +83,8 @@
 .results img
 {
 
-  width: 250px
+  width: 350px;
+  border-radius: 15px
 }
 
 .sidebar {
@@ -111,8 +113,12 @@
 
 .card
 {
-  background-color: #2a2f4f;
+  border: 2px solid #2a2f4f;
+  box-shadow: rgba(0, 0, 1, 0.4) 4px 6px 30px;
+  /* background-color: #2a2f4f; */
   padding: 10px;
   margin: 10px;
   color: white;
+  border-radius: 20px;
 }
+

@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import '../css/Species.css'
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
 
 
 function SpeciesPage() {
@@ -9,15 +10,28 @@ function SpeciesPage() {
 
     let { id } = useParams();
 
-    const [name, setName] = useState('speciesName');
-    const [kingdom, setKingdom] = useState('kingdom');
-    const [family, setFamily] = useState('family');
-    const [imgUrl, setImgUrl] = useState('https://media.istockphoto.com/id/488580536/photo/giraffe-in-front-of-kilimanjaro-mountain.jpg?s=612x612&w=0&k=20&c=xqZ1Lo6_a1Lq4JwRFTts6xCGI0NxMI4UuAYXM5Qwk8g=');
-    const [specieClass, setSpecieClass] = useState('class');
-    const [gene, setGene] = useState('gene');
+    const [name, setName] = useState('');
+    const [kingdom, setKingdom] = useState('');
+    const [family, setFamily] = useState('');
+    const [imgUrl, setImgUrl] = useState('');
+    const [specieClass, setSpecieClass] = useState('');
+    const [genus, setGenus] = useState('');
+    const [desc, setDesc] = useState('');
 
     useEffect(() => {
-        //API call here
+        axios.get(`http://fowon21908-001-site1.ctempurl.com/api/Species/SelectAnimalById?id=${id}`)
+        .then(res =>{
+          const species = res.data;
+          console.log(species);  
+          setName(species.name);
+          setKingdom(species.kingdom);
+          setFamily(species.family);
+          setImgUrl(species.image);
+          setGenus(species.gen);
+          setSpecieClass(species.cls);
+          setDesc(species.description);
+          console.log(species.name);
+        })
     }, []);
     return (
         <div className="species-page">
@@ -26,15 +40,15 @@ function SpeciesPage() {
             </div>
             <div className="specie-block">
                 <div className="description">
-                    <h1>Animal Name</h1>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque in ullamcorper risus. Curabitur cursus velit vitae neque varius pharetra. Proin ante lorem, dictum eget facilisis vitae, accumsan id tortor. Maecenas interdum nunc urna, vitae venenatis enim cursus sit amet. Praesent in pellentesque est. Praesent scelerisque aliquet enim, nec mattis lectus sollicitudin ut. Nulla a sollicitudin arcu, et sodales nisl. Nunc ac tempus eros, nec convallis quam. Nulla quis enim ac lorem viverra eleifend. Vivamus faucibus eros ut sem malesuada condimentum. Vestibulum interdum lacus ut tempus scelerisque. Proin id maximus ipsum. Nulla sed bibendum eros. </p>
+                    <h1>{name}</h1>
+                    <p>{desc}</p>
                 </div>
                 <div className="info">
-                    <img src={imgUrl} alt={name}/>
+                    <img src={`${imgUrl}`} alt={name}/>
                     <ul>
                         <li>Family: {family}</li>
                         <li>Class: {specieClass}</li>
-                        <li>Gene: {gene}</li>
+                        <li>Gene: {genus}</li>
                         <li>Kingdom: {kingdom}</li>
                     </ul>
                 </div>
