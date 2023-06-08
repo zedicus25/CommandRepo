@@ -23,6 +23,10 @@ function SpeciesAdmin() {
             axios.get(api + "/Gen/Select").then(res => setGenuses(res.data));
             axios.get(api + "/Class/Select").then(res => setClasses(res.data));
             axios.get(api + "/Family/Select").then(res => setFamilies(res.data));
+            setKingdomId(kingdoms[0].id);
+            setClassId(classes[0].id);
+            setGenusId(genuses[0].id);
+            setFamilyId(families[0].id);
         } catch (error) { console.log(error); }
 
     }, []);
@@ -50,6 +54,7 @@ function SpeciesAdmin() {
                 idGen: genusId
             }
         };
+        console.log(config);
         axios(config).then(res => console.log(res.data));
     }
 
