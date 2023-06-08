@@ -1,0 +1,132 @@
+.header h1
+{
+  color: #232535;
+  margin-top: 80px;
+  width: 500px;
+  text-align: center;
+  background-color: #5e5781;
+  padding: 20px;
+  border-radius: 50px;
+  cursor: pointer;
+}
+.content
+{
+  display: flex;
+  align-items: center;
+  margin-left: auto;
+  margin-right: auto;
+  flex-flow: column;
+  width: 80%;
+
+}
+.main 
+{
+  display: flex;
+}
+
+.searchInput
+{
+  width: 300px;
+  height: 25px;
+  font-size: 18px;
+  padding: 7px;
+  text-align: center;
+  border-radius: 30px;
+  border: none;
+}
+
+.search
+{
+  cursor: pointer;
+}
+
+.search form
+{
+  display: flex;
+  justify-content: center;
+}
+
+.searchButton
+{
+  margin-top: -7px;
+  width: fit-content;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+  padding: 10px;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+}
+
+.search-icon {
+  width: 30px;
+  height: 30px;
+  fill: #232535;
+}
+
+
+.searchButton
+{
+  background: url('https://www.svgrepo.com/show/89385/search.svg');
+}
+
+.results
+{
+  display: flex;
+  flex-flow: row wrap;
+  text-align: center;
+  padding: 0px;
+}
+
+.results img
+{
+
+  width: 350px;
+  border-radius: 15px
+}
+
+.sidebar {
+  color: white;
+  left: 0;
+  margin-top: 60px;
+  margin-left: 20px;
+  min-width: 140px;
+  height: 200px;
+  background-color: #2a2f4f;
+  padding: 20px;
+  border-radius: 30px;
+  font-size: 22px;
+}
+
+.sidebar ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.sidebar li {
+  margin: 10px;
+}
+
+
+.card
+{
+  border: 2px solid #2a2f4f;
+  box-shadow: rgba(0, 0, 1, 0.4) 4px 6px 30px;
+  /* background-color: #2a2f4f; */
+  padding: 10px;
+  margin: 10px;
+  color: white;
+  border-radius: 20px;
+}
+
+.no-results-message
+{
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  color: white;
+  font-size: 42px;
+}

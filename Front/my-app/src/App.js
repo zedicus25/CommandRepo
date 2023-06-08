@@ -1,25 +1,26 @@
 import logo from './logo.svg';
-import './App.css';
+import './css/App.css';
+import { Routes, Route} from 'react-router-dom'
+import MainPage from "./pages/MainPage.js";
+import AdminPage from './pages/AdminPage'
+import SpeciesPage from './pages/SpeciesPage';
+import { useParams } from 'react-router-dom';
+import SpeciesAdmin from './components/AdminComponents/SpeciesAdmin';
+import CategoriesAdmin from './components/AdminComponents/CategoriesAdmin';
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+	return (
+		
+				<Routes>
+					<Route path="/" element={<MainPage/>}/>
+					<Route path='/species/:id' element={<SpeciesPage/>}/>
+					<Route path='/admin' element={<AdminPage/>}>
+						<Route index element={<SpeciesAdmin/>}></Route>
+						<Route path=':category/:action' element={<CategoriesAdmin/>}></Route>
+					</Route>
+				</Routes>
+		
+	);
 }
 
 export default App;
