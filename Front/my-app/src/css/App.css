@@ -1,6 +1,7 @@
 body
 {
-  background-color: #917fb3;
+  background: url('https://static.vecteezy.com/system/resources/previews/005/179/489/original/hand-drawn-wildlife-landscape-with-deer-mountains-and-lake-background-free-vector.jpg');
+  background-size: cover;
 }
 .App
 {
