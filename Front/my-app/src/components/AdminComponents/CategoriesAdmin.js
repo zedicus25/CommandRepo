@@ -28,10 +28,11 @@ function CategoriesAdmin() {
         if(action === "Edit" || action === "Remove") setShowList(true);
         loadList();
         if(getApiCategoryName() === "Species" && action === "Add") navigate("/admin");
-    }, [action]);
+    }, [action, category]);
 
     function loadList()
     {
+        setList([]);
         axios({
             url: `http://fowon21908-001-site1.ctempurl.com/api/${getApiCategoryName()}/Select`,
             method: "GET"
