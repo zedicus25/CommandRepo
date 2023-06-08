@@ -122,3 +122,11 @@
   border-radius: 20px;
 }
 
+.no-results-message
+{
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  color: white;
+  font-size: 42px;
+}

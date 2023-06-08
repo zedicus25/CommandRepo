@@ -5,12 +5,16 @@ import Card from './Card';
 function Search() {
     const [query, setQuery] = useState('');
     const [results, setResults] = useState([]);
+    const [showNoResultsMsg, setShowNoResultsMsg] = useState(false);
 
     function handleInputChange (event) {
         setQuery(event.target.value);
     };
 
     function handleSubmit (event) {
+        setQuery(query.trim());
+        if(query == "") return;
+        setShowNoResultsMsg(false);
         event.preventDefault();
         searchAPI();
     };
@@ -18,6 +22,7 @@ function Search() {
         try {
             const response = await axios.get(`https://localhost:7132/api/Species/SelectAnimal?search=${query}`); 
             setResults(response.data);
+            if(response.data.length == 0) setShowNoResultsMsg(true);
         } catch (error) {
             console.error(error);
         }
@@ -36,6 +41,7 @@ function Search() {
                     <Card key={index} imageUrl={result.image} title={result.name} id={result.id}></Card>
                 ))}
             </ul>
+            <h1 style={{display: (showNoResultsMsg) ? "" : "none"}} className='no-results-message'>No results</h1>
         </div>
     );
 };

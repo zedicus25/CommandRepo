@@ -45,7 +45,7 @@ function CategoriesAdmin() {
             case "kingdom": return "Kingdom"
             case "class": return "Class";
             case "family": return "Family";
-            case "genus": return "Genus";
+            case "genus": return "Gen";
             case "species": return "Species";
             default: return null;
         }
@@ -58,6 +58,7 @@ function CategoriesAdmin() {
         let data = {};
         switch (action.toLowerCase()) {
             case "add":
+                if(name.trim() == "") return;
                 data = {name: name};
                 break;
             case "edit":
@@ -65,7 +66,6 @@ function CategoriesAdmin() {
                 break;
             case "remove":
                 url = url.concat(`?id=${id}`);
-                console.log(action);
                 break;
             default:
                 console.log(url, action);
@@ -80,9 +80,9 @@ function CategoriesAdmin() {
                     'Content-Type': 'application/json; charset=utf-8'
                 },
                 data: data
-            }).then(() => loadList());
+            }).then(() => loadList()).catch(err => (action.toLowerCase()=="remove") ? alert(`Remove species with this ${category} first`) : console.log(err));
             
-        } catch (error) { console.log(error); }
+        } catch (error) {  console.log(error);}
     }
 
     return (
