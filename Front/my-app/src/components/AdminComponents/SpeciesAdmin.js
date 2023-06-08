@@ -55,7 +55,8 @@ function SpeciesAdmin() {
             }
         };
         console.log(config);
-        axios(config).then(res => console.log(res.data));
+        axios(config).then(() => alert(`${name} added`));
+
     }
 
     return (
