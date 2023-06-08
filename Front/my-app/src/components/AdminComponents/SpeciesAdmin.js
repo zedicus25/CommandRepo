@@ -19,14 +19,12 @@ function SpeciesAdmin() {
     useEffect(() => {
         let api = "http://fowon21908-001-site1.ctempurl.com/api";
         try {
-            axios.get(api + "/Kingdom/Select").then(res => setKingdoms(res.data));
-            axios.get(api + "/Gen/Select").then(res => setGenuses(res.data));
-            axios.get(api + "/Class/Select").then(res => setClasses(res.data));
-            axios.get(api + "/Family/Select").then(res => setFamilies(res.data));
-            setKingdomId(kingdoms[0].id);
-            setClassId(classes[0].id);
-            setGenusId(genuses[0].id);
-            setFamilyId(families[0].id);
+            axios.get(api + "/Kingdom/Select").then(res => {setKingdoms(res.data); setKingdomId(res.data[0].id)});
+            axios.get(api + "/Gen/Select").then(res =>{ setGenuses(res.data); setGenusId(res.data[0].id)});
+            axios.get(api + "/Class/Select").then(res => {setClasses(res.data); setClassId(res.data[0].id)});
+            axios.get(api + "/Family/Select").then(res => {setFamilies(res.data); setFamilyId(res.data[0].id)});
+            
+            
         } catch (error) { console.log(error); }
 
     }, []);
@@ -85,7 +83,7 @@ function SpeciesAdmin() {
                             <label>Kingdom:</label>
                             <select value={kingdomId} onChange={e => setKingdomId(e.target.value)}>
                                 {kingdoms.map((item, index) =>
-                                    <option key={index} value={item.id}>{item.name}</option>
+                                    <option key={item.id} value={item.id}>{item.name}</option>
                                 )}
                             </select>
                         </li>
@@ -93,7 +91,7 @@ function SpeciesAdmin() {
                             <label>Genus:</label>
                             <select value={genusId} onChange={e => setGenusId(e.target.value)}>
                                 {genuses.map((item, index) =>
-                                    <option key={index} value={item.id}>{item.name}</option>
+                                    <option key={item.id} value={item.id}>{item.name}</option>
                                 )}
                             </select>
                         </li>
@@ -101,7 +99,7 @@ function SpeciesAdmin() {
                             <label>Class:</label>
                             <select value={classId} onChange={e => setClassId(e.target.value)}>
                                 {classes.map((item, index) =>
-                                    <option key={index} value={item.id}>{item.name}</option>
+                                    <option key={item.id} value={item.id}>{item.name}</option>
                                 )}
                             </select>
                         </li>
@@ -109,7 +107,7 @@ function SpeciesAdmin() {
                             <label>Family:</label>
                             <select value={familyId} onChange={e => setFamilyId(e.target.value)}>
                                 {families.map((item, index) =>
-                                    <option key={index} value={item.id}>{item.name}</option>
+                                    <option key={item.id} value={item.id}>{item.name}</option>
                                 )}
                             </select>
                         </li>
